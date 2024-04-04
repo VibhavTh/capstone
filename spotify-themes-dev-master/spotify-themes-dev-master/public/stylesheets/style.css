@@ -1,0 +1,64 @@
+body {
+  padding-top: 80px;
+  font-family: 14px "proxima-nova, sans-serif";
+  font-style: normal;
+  font-weight: 100;
+  margin-bottom: 200px;
+}
+
+.navbar {
+  display: inline;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #1DB954;
+  color: white;
+  text-align: center;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.nav-link {
+  color: white;
+
+}
+
+.consent-button {
+  color: white;
+  text-decoration: underline;
+
+}
+
+.btn-lg.btn-success {
+  width: 100%
+}
+
+.responsive {
+  width: auto;
+  height: auto;
+  max-height: 50px
+}
+
+.new_row {
+  margin-top: 70px;
+}
+
+.table {
+  table-layout: auto;
+}
+
+.cookie {
+  margin-top: revert;
+}
+
+@media (max-width:400px) {
+  .phone-table {
+    font-size: 12px
+  }
+}

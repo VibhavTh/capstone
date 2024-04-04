@@ -1,0 +1,62 @@
+extends layout
+
+
+block content
+  .container-fluid.main.px-4.mt-4
+    .row
+      .col.mt-2
+          unless data
+            h2 Automatically create your own theme based playlists using the Spotify Themes App
+            p.font-weight-bold.mt-4 Here is how it works: 
+            p Enter a theme, thought or whatever you can think of in the search bar and the app will automatically generate a playlist with 20 songs for you based on that search. Easy, right?  If you like the playlist, you can click on "Create your Playlist" to automatically add it to your account in the Spotify app 👌🏾
+
+        
+
+    .row
+      unless data
+        .col.mt-2
+          h2 Search for a theme to create your playlist
+
+    .row
+      unless data
+        .col.mt-2
+          form(action='/', method='post')
+            .input-group
+              input.form-control(name='query', type='text', placeholder="Give us a theme ;-)", aria-label="Theme", aria-describedby='basic-addon2')
+              .input-group-append(id="search")
+                button.btn.btn-outline-secondary(type='submit') Search
+    .row.new_row
+      .col.mt-2
+        if data 
+          h2 Yay, we found these 20 songs that match your theme 😊! 
+          p Click on "Create your playlist" to generate your playlist in Spotify and start jamming 🎹
+    .row
+      if data
+        .table-responsive
+          table.table.table-bordered.table-striped.table-dark.mt-4.phone-table
+            thead
+              tr
+                th(scope='col') #
+                th(scope='col') Song
+                th(scope='col') Artist
+                th(scope='col') Year
+
+            tbody
+              if data
+                - var counter = 1
+                each song in data 
+                  tr
+                    th(rowspan="2" scope='rowgroup')= counter++
+                    td= song.name
+                    td= song.artists[0].name
+                    td= song.album.release_date
+
+                  th(colspan="3" scope='colgroup')
+                    - var songSrc = "https://open.spotify.com/embed/track/"
+                    - var songId = song.id
+                      iframe(src=songSrc + songId , width='100%', height='80px', frameborder='0', allowtransparency='true', allow='encrypted-media')
+                    
+
+
+
+    

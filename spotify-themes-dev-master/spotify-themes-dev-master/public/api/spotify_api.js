@@ -1,12 +1,12 @@
 var api = require('axios')
 
 
-async function refreshAccessToken(session) {
+async function refreshToken(session) {
 
 
     console.log(session)
-    refresh_Accesstoken = session.refresh_Accesstoken
-    console.log(refresh_Accesstoken)
+    refresh_token = session.refresh_token
+    console.log(refresh_token)
 
     let new_access_token = await api.request({
         url: 'https://accounts.spotify.com/api/token',
